@@ -1,0 +1,11 @@
+{
+  "name": "17_node-mongo",
+  "version": "1.0.0",
+  "description": "\"my node mongo practice\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "\"SHUBHAM KHUNT \"",
+  "license": "ISC"
+}
