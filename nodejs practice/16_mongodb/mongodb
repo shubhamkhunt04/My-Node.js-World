@@ -1,0 +1,205 @@
+// Type the following command in to Terminal
+db
+use conFusion
+db
+db.help()
+
+db.createCollection("dishes") // create collections
+
+db
+
+db.dishes.insert({
+    "name":"pizza" ,
+    "description":"shubham pizz"
+})
+
+db.dishes.find()
+
+db.dishes.find().pretty()
+
+var id = new ObjectId();
+id.getTimestamp();
+
+exit
+
+
+// Terminal view
+****************************************************************************************************************************
+
+
+The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+and anyone you share the URL with. MongoDB may use this information to make product
+improvements and to suggest MongoDB products and deployment options to you.
+
+To enable free monitoring, run the following command: db.enableFreeMonitoring()
+To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+
+>
+>
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> show collections
+> use tempdb
+switched to db tempdb
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> db
+tempdb
+> db.createCollection("mytable")
+{ "ok" : 1 }
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+tempdb  0.000GB
+> show collections
+mytable
+> db.mytable.insertOne({ "name" : "shubham" , "age" : 20s})
+2020-03-14T16:52:50.525+0530 E  QUERY    [js] uncaught exception: SyntaxError: identifier starts immediately after numeric literal :
+@(shell):1:52
+> db.mytable.find()
+> db.mytable.insertOne({ "name" : "shubham" , "age" : 20})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("5e6cbeb69c0fce10af4f3ee3")
+}
+> db.mytable.find()
+{ "_id" : ObjectId("5e6cbeb69c0fce10af4f3ee3"), "name" : "shubham", "age" : 20 }
+> db.mytable.find().pretty()
+{
+        "_id" : ObjectId("5e6cbeb69c0fce10af4f3ee3"),
+        "name" : "shubham",
+        "age" : 20
+}
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+tempdb  0.000GB
+> db
+tempdb
+> use local
+switched to db local
+> show collections
+startup_log
+> use tempdb
+switched to db tempdb
+> use tempdb
+switched to db tempdb
+> show collections
+mytable
+> db
+tempdb
+
+
+
+
+// conFusion db
+> use conFusion
+switched to db conFusion
+> db
+conFusion
+> db.help()
+DB methods:
+        db.adminCommand(nameOrDocument) - switches to 'admin' db, and runs command [just calls db.runCommand(...)]
+        db.aggregate([pipeline], {options}) - performs a collectionless aggregation on this database; returns a cursor
+        db.auth(username, password)
+        db.cloneDatabase(fromhost) - will only function with MongoDB 4.0 and below
+        db.commandHelp(name) returns the help for the command
+        db.copyDatabase(fromdb, todb, fromhost) - will only function with MongoDB 4.0 and below
+        db.createCollection(name, {size: ..., capped: ..., max: ...})
+        db.createUser(userDocument)
+        db.createView(name, viewOn, [{$operator: {...}}, ...], {viewOptions})
+        db.currentOp() displays currently executing operations in the db
+        db.dropDatabase(writeConcern)
+        db.dropUser(username)
+        db.eval() - deprecated
+        db.fsyncLock() flush data to disk and lock server for backups
+        db.fsyncUnlock() unlocks server following a db.fsyncLock()
+        db.getCollection(cname) same as db['cname'] or db.cname
+        db.getCollectionInfos([filter]) - returns a list that contains the names and options of the db's collections
+        db.getCollectionNames()
+        db.getLastError() - just returns the err msg string
+        db.getLastErrorObj() - return full status object
+        db.getLogComponents()
+        db.getMongo() get the server connection object
+        db.getMongo().setSlaveOk() allow queries on a replication slave server
+        db.getName()
+        db.getProfilingLevel() - deprecated
+        db.getProfilingStatus() - returns if profiling is on and slow threshold
+        db.getReplicationInfo()
+        db.getSiblingDB(name) get the db at the same server as this one
+        db.getWriteConcern() - returns the write concern used for any operations on this db, inherited from server object if set
+        db.hostInfo() get details about the server's host
+        db.isMaster() check replica primary status
+        db.killOp(opid) kills the current operation in the db
+        db.listCommands() lists all the db commands
+        db.loadServerScripts() loads all the scripts in db.system.js
+        db.logout()
+        db.printCollectionStats()
+        db.printReplicationInfo()
+        db.printShardingStatus()
+        db.printSlaveReplicationInfo()
+        db.resetError()
+        db.runCommand(cmdObj) run a database command.  if cmdObj is a string, turns it into {cmdObj: 1}
+        db.serverStatus()
+        db.setLogLevel(level,<component>)
+        db.setProfilingLevel(level,slowms) 0=off 1=slow 2=all
+        db.setVerboseShell(flag) display extra information in shell output
+        db.setWriteConcern(<write concern doc>) - sets the write concern for writes to the db
+        db.shutdownServer()
+        db.stats()
+        db.unsetWriteConcern(<write concern doc>) - unsets the write concern for writes to the db
+        db.version() current version of the server
+        db.watch() - opens a change stream cursor for a database to report on all  changes to its non-system collections.
+> db
+conFusion
+> db.dishes
+conFusion.dishes
+> show collections
+> db
+conFusion
+> db
+conFusion
+> show collections
+> db.creatCollection("dishes")
+2020-03-14T17:03:29.319+0530 E  QUERY    [js] uncaught exception: TypeError: db.creatCollection is not a function :
+@(shell):1:1
+> db.createCollection("dishes")
+{ "ok" : 1 }
+> show collections
+dishes
+> db
+conFusion
+> db.dishes.insert({
+...     "name":"pizza"
+...     "description":"shubham pizz"
+... })
+2020-03-14T17:05:12.437+0530 E  QUERY    [js] uncaught exception: SyntaxError: missing } after property list :
+@(shell):3:4
+> db.dishes.insert({
+...     "name":"pizza" ,
+...     "description":"shubham pizz"
+... })
+WriteResult({ "nInserted" : 1 })
+> db.dishes.find()
+{ "_id" : ObjectId("5e6cc1a59c0fce10af4f3ee4"), "name" : "pizza", "description" : "shubham pizz" }
+> db.dishes.find().pretty()
+{
+        "_id" : ObjectId("5e6cc1a59c0fce10af4f3ee4"),
+        "name" : "pizza",
+        "description" : "shubham pizz"
+}
+> var id = new ObjectId();
+> id.getTimestamp();
+ISODate("2020-03-14T11:45:46Z")
+> exit
+bye
+
+C:\Users\shubham>
+
