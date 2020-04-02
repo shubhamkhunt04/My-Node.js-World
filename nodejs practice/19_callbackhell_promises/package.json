@@ -1,0 +1,11 @@
+{
+  "name": "19_callbackhell_promises",
+  "version": "1.0.0",
+  "description": "\"callbackhell and promises\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "\"SHUBHAM KHUNT \"",
+  "license": "ISC"
+}
